@@ -1,3 +1,9 @@
+# Airflow 
+airflow.cfg
+airflow.db
+standalone_admin_password.txt
+webserver_config.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

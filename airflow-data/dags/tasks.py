@@ -32,13 +32,17 @@ def order_details_to_csv():
 
 def merge_sum_export():
 
+    #Save the tables
     orders_table = pd.read_csv("output_orders.csv")
     order_details_table = pd.read_csv("output_order_details.csv")
 
+    #Join tables
     left_merged = pd.merge(orders_table, order_details_table, how="left", left_on='Id', right_on='OrderId')
      
+    #Conditional sum of quantities
     quantity = left_merged.loc[left_merged['ShipCity']=='Rio de Janeiro']['Quantity'].sum()
 
+    #Write the answer
     with open('count.txt', 'w') as arquivo:
         arquivo.write(str(quantity))
 

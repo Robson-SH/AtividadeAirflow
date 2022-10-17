@@ -52,28 +52,33 @@ with DAG(
         Esse é o desafio de Airflow da Indicium.
     """
    
+    #Task to get order table in csv
     export_order_to_csv = PythonOperator(
         task_id='order_to_csv',
         python_callable=order_to_csv,
         provide_context=True
    )
 
+    #Task to get order details table in csv
     export_order_details_to_csv = PythonOperator(
         task_id='order_details_to_csv',
         python_callable=order_details_to_csv,
         provide_context=True
    )
 
+    #Task to join the tables and get the sums of the quantities
     merge_and_export = PythonOperator(
         task_id='export_output',
         python_callable=merge_sum_export,
         provide_context=True
     )
 
+    #Task to export final answer
     export_final_output = PythonOperator(
         task_id='export_final_output',
         python_callable=export_final_answer,
         provide_context=True
     )
     
+    #Ordering of tasks
     export_order_to_csv >> export_order_details_to_csv >> merge_and_export >> export_final_output
