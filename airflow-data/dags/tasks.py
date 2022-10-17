@@ -42,7 +42,7 @@ def merge_sum_export():
     #Conditional sum of quantities
     quantity = left_merged.loc[left_merged['ShipCity']=='Rio de Janeiro']['Quantity'].sum()
 
-    #Write the answer
+    #Write the answer.
     with open('count.txt', 'w') as arquivo:
         arquivo.write(str(quantity))
 
