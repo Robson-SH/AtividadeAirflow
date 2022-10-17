@@ -3,7 +3,7 @@ import sqlite3
 
 
 def order_to_csv():
-    # Read sqlite query results into a pandas DataFrame
+    # Read sqlite query results into a pandas DataFrame.
     con = sqlite3.connect("Northwind_small.sqlite")
     df = pd.read_sql_query("SELECT * FROM 'Order'", con)
 
@@ -17,7 +17,7 @@ def order_to_csv():
     con.close()
 
 def order_details_to_csv():
-    # Read sqlite query results into a pandas DataFrame
+    # Read sqlite query results into a pandas DataFrame.
     con = sqlite3.connect("Northwind_small.sqlite")
     df = pd.read_sql_query("SELECT * FROM 'OrderDetail'", con)
 
