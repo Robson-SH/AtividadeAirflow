@@ -46,7 +46,5 @@ def merge_sum_export():
     with open('count.txt', 'w') as arquivo:
         arquivo.write(str(quantity))
 
-order_to_csv()
-order_details_to_csv()
 
 
