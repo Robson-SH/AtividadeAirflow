@@ -4,7 +4,7 @@ import sqlite3
 
 def order_to_csv():
     # Read sqlite query results into a pandas DataFrame
-    con = sqlite3.connect("/home/robson/Indicium/Projects/Airflow/Project/Northwind_small.sqlite")
+    con = sqlite3.connect("Northwind_small.sqlite")
     df = pd.read_sql_query("SELECT * FROM 'Order'", con)
 
     # Verify that result of SQL query is stored in the dataframe
@@ -18,7 +18,7 @@ def order_to_csv():
 
 def order_details_to_csv():
     # Read sqlite query results into a pandas DataFrame
-    con = sqlite3.connect("/home/robson/Indicium/Projects/Airflow/Project/Northwind_small.sqlite")
+    con = sqlite3.connect("Northwind_small.sqlite")
     df = pd.read_sql_query("SELECT * FROM 'OrderDetail'", con)
 
     # Verify that result of SQL query is stored in the dataframe
@@ -46,5 +46,7 @@ def merge_sum_export():
     with open('count.txt', 'w') as arquivo:
         arquivo.write(str(quantity))
 
+order_to_csv()
+order_details_to_csv()
 
 
